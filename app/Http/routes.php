@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['prefix'=>'server/v1'],function(){
+    Route::resource('lesson','LessonController');
+});
