@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Lesson;
+use App\Tools\ReturnMessage;
 use App\Transform\LessonTransform;
 use Illuminate\Http\Request;
 
@@ -65,9 +66,9 @@ class LessonController extends Controller
     public function show($id)
     {
         //
-       $data = Lesson::findOrFail($id);
-
-       return $this->lessonTransform->transform($data);
+       $data = Lesson::find($id);
+       if(!$data) return ReturnMessage::error();
+       return ReturnMessage::success($this->lessonTransform->transform($data));
 
     }
 
