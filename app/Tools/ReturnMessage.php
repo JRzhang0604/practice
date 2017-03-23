@@ -11,8 +11,8 @@ namespace App\Tools;
 
 class ReturnMessage
 {
-    private static $serverNo = 'SN200';
-    private static $time;
+    private static $serverNo = 'SN200'; // 定义状态码
+    private static $time;               // 定义返回时间
 
     /**
      * @return mixed
