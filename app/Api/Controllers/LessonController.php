@@ -15,10 +15,20 @@ use App\Lesson;
 class LessonController extends BaseController
 {
 
+    /**
+     * @return mixed
+     */
     public function index()
     {
         $lessons =  Lesson::all();
 
         return $this->collection($lessons,new LessonTransform());
+    }
+
+    public function show($id)
+    {
+        $data = Lesson::find($id);
+        if(!$data) return $this->response->errorNotFound('Not Found');
+        return $this->item($data, new LessonTransform());
     }
 }
