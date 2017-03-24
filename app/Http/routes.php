@@ -11,9 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::group(['prefix'=>'server/v1'],function(){
-    Route::resource('lesson','LessonController');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//Route::group(['prefix'=>'server/v1'],function(){
+//    Route::resource('lesson','LessonController');
+//});
+
+$api = app('Dingo\Api\Routing\Router');
+$api->version('v1', function ($api) {
+
+    $api->group(['namespace' => 'App\Api\Controllers'], function ($api) {
+            $api->get('lesson','LessonController@index');
+    });
 });
