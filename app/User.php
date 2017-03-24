@@ -36,4 +36,10 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    // 字段与数据库不一致时 使用
+//    public function getAuthPassword()
+//    {
+//        return $this->user_password;
+//    }
 }

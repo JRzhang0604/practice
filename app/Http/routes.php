@@ -26,6 +26,7 @@ $api->version('v1', function ($api) {
             $api->get('lesson','LessonController@index');
             $api->post('user/login','AuthController@authenticate');
             $api->post('user/register','AuthController@register');
+            $api->post('user/me','AuthController@getAuthenticatedUser');
             $api->group(['middleware' => 'jwt.auth'],function($api){
                 // 业务逻辑
             });
