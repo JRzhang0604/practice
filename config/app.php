@@ -138,6 +138,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Dingo\Api\Provider\LaravelServiceProvider::class,  // dingoApi
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class, // jwt
+        LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,//OAuth2
+        LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,//OAuth2
         /*
          * Application Service Providers...
          */
@@ -197,6 +199,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class, // jwt
         'JWTFactory'=> Tymon\JWTAuth\Facades\JWTFactory::class, // jwt
+        'Authorizer' => LucaDegasperi\OAuth2Server\Facades\Authorizer::class, //OAuth2
 
 
     ],
